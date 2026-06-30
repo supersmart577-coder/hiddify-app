@@ -10,6 +10,9 @@ abstract class Constants {
   static const githubLatestReleaseUrl = "https://github.com/hiddify/hiddify-app/releases/latest";
   static const appCastUrl = "https://raw.githubusercontent.com/hiddify/hiddify-next/main/appcast.xml";
   static const telegramChannelUrl = "https://t.me/mystrizh_bot";
+  // Стриж: зашитый сервер (Reality, Варшава, ад-фри) — авто-импорт на первом запуске.
+  static const bakedConfig =
+      "vless://9e0e1691-1410-4ddc-bbe5-a14d3ebc0db8@93.123.113.174:443?security=reality&type=tcp&flow=xtls-rprx-vision&sni=gateway.icloud.com&fp=chrome&pbk=5vme2K_3Y4iBUrMEwgwwxm_GioB8_7569RXpiLRkfVg&sid=2628f72de4c6e585#%D0%A1%D1%82%D1%80%D0%B8%D0%B6%20VPN";
   static const privacyPolicyUrl = "https://hiddify.com/privacy-policy/";
   static const termsAndConditionsUrl = "https://hiddify.com/terms/";
   static const cfWarpPrivacyPolicy = "https://www.cloudflare.com/application/privacypolicy/";

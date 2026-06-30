@@ -13,6 +13,7 @@ import 'package:hiddify/core/localization/translations.dart';
 import 'package:hiddify/core/model/constants.dart';
 import 'package:hiddify/core/model/region.dart';
 import 'package:hiddify/core/preferences/general_preferences.dart';
+import 'package:hiddify/features/profile/notifier/profile_notifier.dart';
 import 'package:hiddify/features/common/general_pref_tiles.dart';
 import 'package:hiddify/features/settings/data/config_option_repository.dart';
 import 'package:hiddify/features/settings/widget/preference_tile.dart';
@@ -187,6 +188,12 @@ class IntroPage extends HookConsumerWidget with PresLogger {
             }
           }
           await ref.read(Preferences.introCompleted.notifier).update(true);
+          // Стриж: зашитый сервер — авто-импорт, чтобы пользователь ничего не вставлял.
+          try {
+            await ref.read(addProfileNotifierProvider.notifier).addClipboard(Constants.bakedConfig);
+          } catch (error, stackTrace) {
+            loggy.warning("seeding default Стриж profile failed", error, stackTrace);
+          }
         },
       ),
     );

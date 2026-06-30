@@ -116,33 +116,12 @@ class IPCountryFlag extends HookConsumerWidget {
       label: t.pages.proxies.ipInfo.country,
       child: Padding(
         padding: padding,
-        child: (countryCode?.isEmpty ?? true)
-            ? Icon(FluentIcons.question_circle_20_regular, size: size)
-            : SizedBox(
-                width: size,
-                height: size,
-                child: Stack(
-                  textDirection: Directionality.of(context),
-                  alignment: Alignment.center,
-                  children: [
-                    CircleFlag(
-                      // key: ValueKey(countryCode),
-                      countryCode!.toLowerCase() == "ir" ? "ir-shir" : countryCode!,
-                      size: size - 8,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8), // Rounded effect
-                      ),
-                    ),
-                    if (organization != null)
-                      Positioned.directional(
-                        textDirection: Directionality.of(context),
-                        bottom: 0,
-                        end: 0,
-                        child: OrganisationFlag(organization: organization!, size: size / 2.5),
-                      ),
-                  ],
-                ),
-              ),
+        // Стриж: вместо флага страны сервера — брендовый значок (без «албанского флага»).
+        child: Icon(
+          Icons.shield_rounded,
+          size: size,
+          color: const Color(0xFF2E9BE6),
+        ),
       ),
     );
   }
