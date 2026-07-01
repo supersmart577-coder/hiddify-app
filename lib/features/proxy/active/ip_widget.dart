@@ -116,11 +116,12 @@ class IPCountryFlag extends HookConsumerWidget {
       label: t.pages.proxies.ipInfo.country,
       child: Padding(
         padding: padding,
-        // Стриж: вместо флага страны сервера — брендовый значок (без «албанского флага»).
-        child: Icon(
-          Icons.shield_rounded,
-          size: size,
-          color: const Color(0xFF2E9BE6),
+        // Стриж: вместо флага страны сервера — наш логотип (без «албанского флага»).
+        child: Image.asset(
+          "assets/images/strizh_logo.png",
+          width: size,
+          height: size,
+          fit: BoxFit.contain,
         ),
       ),
     );
